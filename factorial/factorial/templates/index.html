@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Factorial Calculator</h1>
+        <p class="subtitle">Calculate the factorial of a non-negative integer</p>
+
+        <form method="post">
+            <input type="number"
+                   name="n"
+                   min="0"
+                   placeholder="Enter a number"
+                   required>
+            <button type="submit">Calculate</button>
+        </form>
+
+        {% if result is not none %}
+        <div class="result">
+            <span>{{ n }}!</span> = <strong>{{ result }}</strong>
+        </div>
+        {% endif %}
+
+        {% if error %}
+        <div class="error">{{ error }}</div>
+        {% endif %}
+    </div>
+
+</body>
+</html>
